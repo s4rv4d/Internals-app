@@ -13,7 +13,10 @@ class ProfileTableViewCell: UITableViewCell {
     //MARK:IBOutlets
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var cellOption: UIButton!
+    @IBOutlet weak var organisationLabel: UILabel!
     @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
+    
     
     
     override func awakeFromNib() {

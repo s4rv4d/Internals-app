@@ -8,5 +8,10 @@ target 'Internals' do
   # Pods for Internals
  	pod 'Firebase/Core'
 	pod 'Firebase/Database'
+    pod 'RealmSwift'
+    pod 'SwiftKeychainWrapper'
+    pod 'Firebase/Auth'
+    pod 'SVProgressHUD'
+    pod 'SwiftyJSON'
 
 end

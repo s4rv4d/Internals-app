@@ -16,6 +16,9 @@
 		4088108F20AB39D200294146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4088108E20AB39D200294146 /* Assets.xcassets */; };
 		4088109220AB39D200294146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4088109020AB39D200294146 /* LaunchScreen.storyboard */; };
 		4088109A20AB406800294146 /* colorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088109920AB406800294146 /* colorHelper.swift */; };
+		4090ABCC20C079C0005E8142 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090ABCB20C079C0005E8142 /* LoginModel.swift */; };
+		4090ABCE20C07A2B005E8142 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090ABCD20C07A2B005E8142 /* loginViewController.swift */; };
+		4090ABD020C0BD69005E8142 /* PassDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090ABCF20C0BD69005E8142 /* PassDataViewController.swift */; };
 		40EC0FC520ACF80D00AAD5CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EC0FC420ACF80D00AAD5CA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		4088109120AB39D200294146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4088109320AB39D200294146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4088109920AB406800294146 /* colorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorHelper.swift; sourceTree = "<group>"; };
+		4090ABCB20C079C0005E8142 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		4090ABCD20C07A2B005E8142 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		4090ABCF20C0BD69005E8142 /* PassDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataViewController.swift; sourceTree = "<group>"; };
 		40EC0FC420ACF80D00AAD5CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F0509F59500E67BF1CCF93 /* Pods-Internals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Internals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Internals/Pods-Internals.release.xcconfig"; sourceTree = "<group>"; };
 		A5F4D945FA4EBABF0B884939 /* Pods_Internals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Internals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,8 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				4088108920AB39CE00294146 /* ProfileViewController.swift */,
-				404C88C820ACFB820077CF71 /* ProfileWorkModel.swift */,
 				40340F3B20ACED9900B40155 /* ProfileTableViewCell.swift */,
+				4090ABCD20C07A2B005E8142 /* loginViewController.swift */,
+				4090ABCF20C0BD69005E8142 /* PassDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			children = (
 				4088108720AB39CE00294146 /* AppDelegate.swift */,
 				400402A320B8C08700B16F2F /* Controllers */,
+				4090ABCA20C078BB005E8142 /* Models */,
 				400402A420B8C09F00B16F2F /* Support files */,
 				400402A520B8C0AD00B16F2F /* Storyboards */,
 				4088108E20AB39D200294146 /* Assets.xcassets */,
@@ -114,6 +122,15 @@
 				4088109320AB39D200294146 /* Info.plist */,
 			);
 			path = Internals;
+			sourceTree = "<group>";
+		};
+		4090ABCA20C078BB005E8142 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				404C88C820ACFB820077CF71 /* ProfileWorkModel.swift */,
+				4090ABCB20C079C0005E8142 /* LoginModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DE43DF7092F53A2371BFFB52 /* Frameworks */ = {
@@ -202,13 +219,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Internals/Pods-Internals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -257,11 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4090ABCE20C07A2B005E8142 /* loginViewController.swift in Sources */,
 				4088108A20AB39CE00294146 /* ProfileViewController.swift in Sources */,
+				4090ABCC20C079C0005E8142 /* LoginModel.swift in Sources */,
 				40340F3C20ACED9900B40155 /* ProfileTableViewCell.swift in Sources */,
 				404C88C920ACFB820077CF71 /* ProfileWorkModel.swift in Sources */,
 				4088108820AB39CE00294146 /* AppDelegate.swift in Sources */,
 				4088109A20AB406800294146 /* colorHelper.swift in Sources */,
+				4090ABD020C0BD69005E8142 /* PassDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
