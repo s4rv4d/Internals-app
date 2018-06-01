@@ -9,5 +9,8 @@
 import Foundation
 
 struct ProfileWork {
-    var dummyMessage:String
+    var about:String
+    var taskValue:Double
+    var task:String
+    var organisation:String
 }

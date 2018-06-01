@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftyJSON
+import RealmSwift
 
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -24,11 +26,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //MARK:Variables
     let shapeLayer = CAShapeLayer()
+    var loginModelArray:Results<LoginModel>?
+    var realm = try! Realm()
     
     //MARK:Dummy data
     var progressBarValue = 78.0 / 100.0
-    var array = ["hi","hi","hi"]
     var profileWorkArray = [ProfileWork]()
+    var registrationNo:String?
     
     
     override func viewDidLoad() {
@@ -54,7 +58,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let centery = circularProgress.layer.bounds.midY
         let centerx = circularProgress.layer.bounds.midX
         let center = CGPoint(x: centerx, y: centery)
-        print(circularProgress.center)
         let circularPath = UIBezierPath(arcCenter: center, radius: 47.5, startAngle: -0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.red.cgColor
@@ -91,7 +94,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //MARK:Tableview properties
         profileTableView.separatorStyle = .none
         
-        //MARK:Laoding data
+        //MARK:Loading data
+        getData()
         loadData()
 
     }
@@ -104,6 +108,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         basicAni.fillMode = kCAFillModeForwards
         basicAni.isRemovedOnCompletion = false
         shapeLayer.add(basicAni, forKey: "basicAni")
+    }
+    
+    func getData(){
+        loginModelArray = realm.objects(LoginModel.self)
+        profileName.text = loginModelArray![0].name
+        roleLabel.text = loginModelArray![0].role
+        teamLabel.text = loginModelArray![0].team
     }
     
     //MARK:Tableview functions
@@ -121,7 +132,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cell.cellView.layer.shadowOpacity = 0.16
         cell.cellOption.layer.cornerRadius = cell.cellOption.frame.width/2
         cell.cellOption.clipsToBounds = true
-        cell.taskLabel.text = profileWorkArray[indexPath.row].dummyMessage
+        cell.aboutLabel.text = profileWorkArray[indexPath.row].about
+        cell.organisationLabel.text = profileWorkArray[indexPath.row].organisation
+        cell.taskLabel.text = profileWorkArray[indexPath.row].task
     
         return cell
     }
@@ -134,12 +147,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //MARK:Networking methods
     func loadData(){
-        Database.database().reference().child("Test").observe(.value) { (snapshot) in
+        Database.database().reference().child("userProfile").child(registrationNo!).child("work").observe(.value) { (snapshot) in
             if let data = snapshot.value as? Dictionary<String,AnyObject>{
-                print(data["msg"]!)
-                let newObject = ProfileWork(dummyMessage: data["msg"]! as! String)
-                self.profileWorkArray.append(newObject)
-                self.profileTableView.reloadData()
+                let jsonData = JSON(data)
+            let dataKeys = data.keys
+                for i in dataKeys{
+                    let newObject = ProfileWork(about: jsonData[i]["about"].stringValue, taskValue: jsonData[i]["taskValue"].doubleValue, task: jsonData[i]["task"].stringValue, organisation: jsonData[i]["organisation"].stringValue)
+                    self.profileWorkArray.append(newObject)
+                }
+                 self.profileTableView.reloadData()
             }
         }
     }
