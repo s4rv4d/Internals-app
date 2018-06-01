@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import FirebaseDatabase
 import SwiftyJSON
+import SwiftKeychainWrapper
 
 class loginViewController: UIViewController, UITextFieldDelegate {
 
@@ -32,6 +33,13 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         observeNotification()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let a = KeychainWrapper.standard.string(forKey: "regno"){
+            print(a)
+            performSegue(withIdentifier: "goToView", sender: nil)
+        }
     }
     
     
@@ -97,6 +105,8 @@ class loginViewController: UIViewController, UITextFieldDelegate {
     
     func passwordCheck(reg:String,pass:String,data:JSON){
         if registrationNumber == reg && password == pass {
+            //login status
+            KeychainWrapper.standard.set(registrationNumber!, forKey: "regno")
             save(data: data)
             performSegue(withIdentifier: "goToView", sender: nil)
         }

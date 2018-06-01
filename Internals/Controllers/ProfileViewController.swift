@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import SwiftyJSON
 import RealmSwift
+import SwiftKeychainWrapper
 
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -34,9 +35,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var profileWorkArray = [ProfileWork]()
     var registrationNo:String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Login status
+        guard let valueAvail = KeychainWrapper.standard.string(forKey: "regno") else{ return }
+        registrationNo = valueAvail
         
         //View Properties
         subView2.layer.cornerRadius = 18
@@ -93,6 +96,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //MARK:Tableview properties
         profileTableView.separatorStyle = .none
+        
+        print(registrationNo)
         
         //MARK:Loading data
         getData()
