@@ -13,5 +13,6 @@ target 'Internals' do
     pod 'Firebase/Auth'
     pod 'SVProgressHUD'
     pod 'SwiftyJSON'
+    pod 'FSCalendar'
 
 end

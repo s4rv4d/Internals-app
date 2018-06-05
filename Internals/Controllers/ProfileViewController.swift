@@ -58,10 +58,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
         
         //circular progress properties
-        let centery = circularProgress.layer.bounds.midY
-        let centerx = circularProgress.layer.bounds.midX
+        let centery = circularProgress.layer.bounds.midY - 1
+        let centerx = circularProgress.layer.bounds.midX - 1
         let center = CGPoint(x: centerx, y: centery)
-        let circularPath = UIBezierPath(arcCenter: center, radius: 47.5, startAngle: -0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 45, startAngle: -0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.red.cgColor
         shapeLayer.lineWidth = 8
