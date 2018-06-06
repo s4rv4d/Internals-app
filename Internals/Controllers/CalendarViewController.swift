@@ -34,7 +34,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        loadData()
         
     }
     
@@ -56,13 +56,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     }
     
     
-    
-    
-    //need to work out a way to load data first before loading calendar
-    //need to go into the documentation
-    
-    
-    
     //MARK:Functions
     func loadData(){
         Database.database().reference().child("events").observe(.value) { (snapshot) in
@@ -76,13 +69,15 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     eventArray.append(jsonData[i]["date"].stringValue)
                 }
                 self.calendarTableView.reloadData()
-                print(eventArray)
+                self.calls.reloadData()
             }
         }
     }
     
 }
 
+
+//MARK:UITableView properties
 extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calendarModelArray.count
