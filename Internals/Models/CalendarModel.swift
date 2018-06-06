@@ -11,4 +11,5 @@ import Foundation
 struct CalendarModel  {
     var date:String
     var name:String
+    var dateForCell:String
 }
