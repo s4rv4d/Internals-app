@@ -383,8 +383,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="dataSource" destination="sbt-k2-Fzy" id="VUw-Iw-ObE"/>
-                                            <outlet property="delegate" destination="sbt-k2-Fzy" id="k0d-FB-DPe"/>
+                                            <outlet property="dataSource" destination="sbt-k2-Fzy" id="xJH-yD-g0z"/>
+                                            <outlet property="delegate" destination="sbt-k2-Fzy" id="wKi-ky-Yjk"/>
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW3-C9-j0E">
@@ -460,6 +460,7 @@
                     <tabBarItem key="tabBarItem" title="Calendar" id="frW-lH-C8F"/>
                     <connections>
                         <outlet property="calendarTableView" destination="1vx-4x-USS" id="uv3-RA-j0i"/>
+                        <outlet property="calls" destination="cIO-DU-WoT" id="VDZ-4b-9wM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZhE-4u-9vE" userLabel="First Responder" sceneMemberID="firstResponder"/>

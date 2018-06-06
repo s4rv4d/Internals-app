@@ -20,41 +20,48 @@ import SwiftyJSON
     }()
     fileprivate let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
 
-    let eventArray = ["2018-06-03","2018-06-29"]
+    var eventArray = [String]()
     var calendarModelArray = [CalendarModel]()
-
-
+    var counter = true
 
 
 class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
 
     //MARK:IBOutlets
     @IBOutlet weak var calendarTableView: UITableView!
+    @IBOutlet weak var calls: FSCalendar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
-        loadData()
-    }
 
+        
+    }
+    
 
     //MARK:FSCalender methods
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        let datesss = formatter.string(from: date)
-//        if eventArray.contains(datesss){
-//            return 1
-//        }else{
-//            return 0
-//        }
-        return 0
-//
+
+        let datesss = formatter.string(from: date)
+        print(datesss)
+        if eventArray.contains(datesss){
+            return 1
+        }else{
+            return 0
+        }
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("selected:","\(formatter.string(from: date))")
     }
+    
+    
+    
+    
+    //need to work out a way to load data first before loading calendar
+    //need to go into the documentation
+    
+    
     
     //MARK:Functions
     func loadData(){
@@ -66,8 +73,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                 for i in dataKeys{
                    let newObject = CalendarModel(date: jsonData[i]["date"].stringValue, name: jsonData[i]["name"].stringValue)
                     calendarModelArray.append(newObject)
+                    eventArray.append(jsonData[i]["date"].stringValue)
                 }
                 self.calendarTableView.reloadData()
+                print(eventArray)
             }
         }
     }
