@@ -81,7 +81,9 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     let newObject = CalendarModel(date: jsonData[i]["date"].stringValue, name: jsonData[i]["name"].stringValue, dateForCell: jsonData[i]["dateForCell"].stringValue)
                     
                     //getting current date
-                    if newObject.dateForCell != todayDateString{
+                    let a1 = Int(newObject.dateForCell.split(separator: "-")[0])
+                    let a2 = Int(todayDateString.split(separator: "-")[0])
+                    if newObject.dateForCell != todayDateString && a1! > a2! {
                         calendarModelArray.append(newObject)
                         eventArray.append(jsonData[i]["date"].stringValue)
                     }
