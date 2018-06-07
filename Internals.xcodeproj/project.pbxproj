@@ -89,6 +89,7 @@
 		400402A420B8C09F00B16F2F /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				40CEF19320C6FB9900F486A8 /* RealmSwift_BridgeHeader.m */,
 				40CEF19520C71ECE00F486A8 /* Objc-Bridge-Header.h */,
 				4088109920AB406800294146 /* colorHelper.swift */,
 			);
@@ -130,11 +131,10 @@
 				4090ABCA20C078BB005E8142 /* Models */,
 				400402A420B8C09F00B16F2F /* Support files */,
 				400402A520B8C0AD00B16F2F /* Storyboards */,
+				40CEF19220C6FB9800F486A8 /* Internals-Bridging-Header.h */,
 				4088108E20AB39D200294146 /* Assets.xcassets */,
 				40EC0FC420ACF80D00AAD5CA /* GoogleService-Info.plist */,
 				4088109320AB39D200294146 /* Info.plist */,
-				40CEF19220C6FB9800F486A8 /* Internals-Bridging-Header.h */,
-				40CEF19320C6FB9900F486A8 /* RealmSwift_BridgeHeader.m */,
 			);
 			path = Internals;
 			sourceTree = "<group>";

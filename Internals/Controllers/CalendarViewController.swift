@@ -23,6 +23,11 @@ import SwiftyJSON
         formatter.dateFormat = "dd"
         return formatter
     }()
+fileprivate let formatterDay2 :DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd-MM-yyyy"
+    return formatter
+}()
     fileprivate let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
 
     var eventArray = [String]()
@@ -30,6 +35,7 @@ import SwiftyJSON
     var sortedCalendarModelArray = [CalendarModel]()
     var counter = true
     var todayDate:Int = 0
+    var todayDateString:String = ""
 
 
 class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
@@ -51,8 +57,9 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
         if gregorian.isDateInToday(date){
-            print("today",date)
             todayDate = Int(formatterDay.string(from: date))!
+            todayDateString = formatterDay2.string(from: date)
+            print(todayDateString)
         }
         
         let datesss = formatter.string(from: date)
@@ -63,11 +70,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         }
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("selected:","\(formatter.string(from: date))")
-    }
-    
-    
     //MARK:Functions
     func loadData(){
         Database.database().reference().child("events").observe(.value) { (snapshot) in
@@ -77,15 +79,16 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                 let dataKeys = data.keys
                 for i in dataKeys{
                     let newObject = CalendarModel(date: jsonData[i]["date"].stringValue, name: jsonData[i]["name"].stringValue, dateForCell: jsonData[i]["dateForCell"].stringValue)
-                    calendarModelArray.append(newObject)
-                    eventArray.append(jsonData[i]["date"].stringValue)
+                    
+                    //getting current date
+                    if newObject.dateForCell != todayDateString{
+                        calendarModelArray.append(newObject)
+                        eventArray.append(jsonData[i]["date"].stringValue)
+                    }
                 }
-                print(calendarModelArray)
                 sortedCalendarModelArray = calendarModelArray.sorted{ $0.dateForCell < $1.dateForCell}
-                print(sortedCalendarModelArray)
                 self.calendarTableView.reloadData()
                 self.calls.reloadData()
-                print(todayDate)
             }
         }
     }
@@ -112,7 +115,8 @@ extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
         cell.noOfDaysLabel.text = String(todayDate)
         if todayDate == 1{
             cell.dayLabel.text = "Day"
-        }else{
+        }
+        else{
             cell.dayLabel.text = "Days"
         }
         
