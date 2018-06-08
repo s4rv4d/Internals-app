@@ -35,6 +35,7 @@ fileprivate let formatterDay2 :DateFormatter = {
     var sortedCalendarModelArray = [CalendarModel]()
     var counter = true
     var todayDate:Int = 0
+    var todayDate1:Int = 0
     var todayDateString:String = ""
 
 
@@ -83,6 +84,8 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     //getting current date
                     let a1 = Int(newObject.dateForCell.split(separator: "-")[0])
                     let a2 = Int(todayDateString.split(separator: "-")[0])
+                    
+                    //to check if event has passed away
                     if newObject.dateForCell != todayDateString && a1! > a2! {
                         calendarModelArray.append(newObject)
                         eventArray.append(jsonData[i]["date"].stringValue)
@@ -113,9 +116,9 @@ extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
         cell.workAllotmentButton.layer.cornerRadius = 12
         
         let newStr = Int(sortedCalendarModelArray[indexPath.row].dateForCell.split(separator: "-")[0])
-        todayDate = newStr! - todayDate
-        cell.noOfDaysLabel.text = String(todayDate)
-        if todayDate == 1{
+        todayDate1 = newStr! - todayDate
+        cell.noOfDaysLabel.text = String(todayDate1)
+        if todayDate1 == 1{
             cell.dayLabel.text = "Day"
         }
         else{
