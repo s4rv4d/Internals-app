@@ -70,6 +70,9 @@ class DetailAttendanceViewController: UIViewController,UITableViewDelegate,UITab
         tableViewCellProperties.attend = attend[indexPath.row]
         return tableViewCellProperties
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        attendenceTable.deselectRow(at: indexPath, animated: true)
+    }
     
     
     //MARK: CircularRingProperties
