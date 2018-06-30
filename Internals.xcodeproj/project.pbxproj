@@ -23,6 +23,12 @@
 		40CEF19720C7241300F486A8 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEF19620C7241300F486A8 /* CalendarViewController.swift */; };
 		40CEF19920C7449100F486A8 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEF19820C7449100F486A8 /* CalendarModel.swift */; };
 		40CEF19B20C7471D00F486A8 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEF19A20C7471D00F486A8 /* CalendarTableViewCell.swift */; };
+		40D7938C20E74CCD0093794B /* DetailAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7938B20E74CCD0093794B /* DetailAttendanceViewController.swift */; };
+		40D7938E20E74E860093794B /* AttendanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7938D20E74E860093794B /* AttendanceCollectionViewCell.swift */; };
+		40D7939020E74F010093794B /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7938F20E74F010093794B /* AttendanceTableViewCell.swift */; };
+		40D7939220E74F850093794B /* DetailAttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7939120E74F850093794B /* DetailAttendanceModel.swift */; };
+		40D7939420E74FAF0093794B /* Mark Simonson - Proxima Nova Alt Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40D7939320E74FAE0093794B /* Mark Simonson - Proxima Nova Alt Bold.otf */; };
+		40D7939620E74FC10093794B /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 40D7939520E74FC00093794B /* Fonts */; };
 		40EC0FC520ACF80D00AAD5CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EC0FC420ACF80D00AAD5CA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +53,12 @@
 		40CEF19620C7241300F486A8 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		40CEF19820C7449100F486A8 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		40CEF19A20C7471D00F486A8 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		40D7938B20E74CCD0093794B /* DetailAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAttendanceViewController.swift; sourceTree = "<group>"; };
+		40D7938D20E74E860093794B /* AttendanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCollectionViewCell.swift; sourceTree = "<group>"; };
+		40D7938F20E74F010093794B /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTableViewCell.swift; sourceTree = "<group>"; };
+		40D7939120E74F850093794B /* DetailAttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAttendanceModel.swift; sourceTree = "<group>"; };
+		40D7939320E74FAE0093794B /* Mark Simonson - Proxima Nova Alt Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Alt Bold.otf"; sourceTree = "<group>"; };
+		40D7939520E74FC00093794B /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		40EC0FC420ACF80D00AAD5CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F0509F59500E67BF1CCF93 /* Pods-Internals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Internals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Internals/Pods-Internals.release.xcconfig"; sourceTree = "<group>"; };
 		A5F4D945FA4EBABF0B884939 /* Pods_Internals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Internals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +94,9 @@
 				4090ABCF20C0BD69005E8142 /* PassDataViewController.swift */,
 				40CEF19620C7241300F486A8 /* CalendarViewController.swift */,
 				40CEF19A20C7471D00F486A8 /* CalendarTableViewCell.swift */,
+				40D7938B20E74CCD0093794B /* DetailAttendanceViewController.swift */,
+				40D7938D20E74E860093794B /* AttendanceCollectionViewCell.swift */,
+				40D7938F20E74F010093794B /* AttendanceTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -89,6 +104,7 @@
 		400402A420B8C09F00B16F2F /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				40D7939520E74FC00093794B /* Fonts */,
 				40CEF19320C6FB9900F486A8 /* RealmSwift_BridgeHeader.m */,
 				40CEF19520C71ECE00F486A8 /* Objc-Bridge-Header.h */,
 				4088109920AB406800294146 /* colorHelper.swift */,
@@ -108,6 +124,7 @@
 		4088107B20AB39CE00294146 = {
 			isa = PBXGroup;
 			children = (
+				40D7939320E74FAE0093794B /* Mark Simonson - Proxima Nova Alt Bold.otf */,
 				4088108620AB39CE00294146 /* Internals */,
 				4088108520AB39CE00294146 /* Products */,
 				2F674FDCD37145AF2FE4088A /* Pods */,
@@ -145,6 +162,7 @@
 				404C88C820ACFB820077CF71 /* ProfileWorkModels.swift */,
 				4090ABCB20C079C0005E8142 /* LoginModel.swift */,
 				40CEF19820C7449100F486A8 /* CalendarModel.swift */,
+				40D7939120E74F850093794B /* DetailAttendanceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,8 +237,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D7939420E74FAF0093794B /* Mark Simonson - Proxima Nova Alt Bold.otf in Resources */,
 				4088109220AB39D200294146 /* LaunchScreen.storyboard in Resources */,
 				40EC0FC520ACF80D00AAD5CA /* GoogleService-Info.plist in Resources */,
+				40D7939620E74FC10093794B /* Fonts in Resources */,
 				4088108F20AB39D200294146 /* Assets.xcassets in Resources */,
 				4088108D20AB39CE00294146 /* Main.storyboard in Resources */,
 			);
@@ -236,6 +256,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Internals/Pods-Internals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -244,11 +265,14 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -257,6 +281,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -306,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40CEF19720C7241300F486A8 /* CalendarViewController.swift in Sources */,
+				40D7939220E74F850093794B /* DetailAttendanceModel.swift in Sources */,
 				4090ABCE20C07A2B005E8142 /* loginViewController.swift in Sources */,
 				4088108A20AB39CE00294146 /* ProfileViewController.swift in Sources */,
 				40CEF19420C6FB9900F486A8 /* RealmSwift_BridgeHeader.m in Sources */,
@@ -313,6 +340,9 @@
 				40340F3C20ACED9900B40155 /* ProfileTableViewCell.swift in Sources */,
 				404C88C920ACFB820077CF71 /* ProfileWorkModels.swift in Sources */,
 				4088108820AB39CE00294146 /* AppDelegate.swift in Sources */,
+				40D7939020E74F010093794B /* AttendanceTableViewCell.swift in Sources */,
+				40D7938C20E74CCD0093794B /* DetailAttendanceViewController.swift in Sources */,
+				40D7938E20E74E860093794B /* AttendanceCollectionViewCell.swift in Sources */,
 				4088109A20AB406800294146 /* colorHelper.swift in Sources */,
 				4090ABD020C0BD69005E8142 /* PassDataViewController.swift in Sources */,
 				40CEF19920C7449100F486A8 /* CalendarModel.swift in Sources */,

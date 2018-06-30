@@ -10,6 +10,7 @@ import UIKit
 import FSCalendar
 import FirebaseDatabase
 import SwiftyJSON
+import TableViewReloadAnimation
 
 
     //MARK:Variables
@@ -92,7 +93,9 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     }
                 }
                 sortedCalendarModelArray = calendarModelArray.sorted{ $0.dateForCell < $1.dateForCell}
-                self.calendarTableView.reloadData()
+                self.calendarTableView.reloadData(
+                    with: .simple(duration: 0.45, direction: .left(useCellsFrame: true),
+                                  constantDelay: 0))
                 self.calls.reloadData()
             }
         }

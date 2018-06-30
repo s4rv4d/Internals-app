@@ -11,6 +11,7 @@ import FirebaseDatabase
 import SwiftyJSON
 import RealmSwift
 import SwiftKeychainWrapper
+import TableViewReloadAnimation
 
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -160,7 +161,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     let newObject = ProfileWork(about: jsonData[i]["about"].stringValue, taskValue: jsonData[i]["taskValue"].doubleValue, task: jsonData[i]["task"].stringValue, organisation: jsonData[i]["organisation"].stringValue)
                     self.profileWorkArray.append(newObject)
                 }
-                 self.profileTableView.reloadData()
+                self.profileTableView.reloadData(
+                    with: .simple(duration: 0.45, direction: .left(useCellsFrame: true),
+                                  constantDelay: 0))
             }
         }
     }

@@ -133,18 +133,8 @@ class loginViewController: UIViewController, UITextFieldDelegate {
             try? realm.write {
                 realm.add(loginModelObject)
             }
-        }catch{}
-            }
-    
-    //MARK:Segue properties
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToView"{
-            if  let dashboardController = segue.destination as? PassDataViewController{
-            let profile = dashboardController.viewControllers![0] as! ProfileViewController
-            profile.registrationNo = registrationNumber
-            }
-        }
-    }
+        }            }
+
 }
 
 

@@ -14,5 +14,9 @@ target 'Internals' do
     pod 'SVProgressHUD'
     pod 'SwiftyJSON'
     pod 'FSCalendar'
+    pod 'ChameleonFramework'
+    pod 'UICircularProgressRing'
+    pod 'TableViewReloadAnimation', '~> 0.0.5'
+
 
 end

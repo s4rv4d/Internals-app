@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - Firebase/Auth (5.1.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.0)
@@ -44,8 +47,11 @@ PODS:
   - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftyJSON (4.1.0)
+  - TableViewReloadAnimation (0.0.5)
+  - UICircularProgressRing (2.1.0)
 
 DEPENDENCIES:
+  - ChameleonFramework
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -54,8 +60,11 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON
+  - TableViewReloadAnimation (~> 0.0.5)
+  - UICircularProgressRing
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
@@ -72,7 +81,9 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
+  UICircularProgressRing: 01b8f67bbaca7e3a83ccfa67630fe059a51211d1
 
-PODFILE CHECKSUM: fe8414481c3579246106ceec06df273df357a18f
+PODFILE CHECKSUM: f4c7888c01e9a85ed4c4a9ca40a157e674ce4d48
 
 COCOAPODS: 1.4.0
