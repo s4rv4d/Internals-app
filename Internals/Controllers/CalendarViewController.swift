@@ -13,35 +13,42 @@ import SwiftyJSON
 import TableViewReloadAnimation
 
 
-    //MARK:Variables
-    fileprivate let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-    fileprivate let formatterDay :DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd"
-        return formatter
-    }()
+//MARK:Variables
+fileprivate let formatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    return formatter
+}()
+fileprivate let formatterDay :DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd"
+    return formatter
+}()
+fileprivate let formatterMonth :DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM"
+    return formatter
+}()
 fileprivate let formatterDay2 :DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "dd-MM-yyyy"
     return formatter
 }()
-    fileprivate let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
+fileprivate let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
 
-    var eventArray = [String]()
-    var calendarModelArray = [CalendarModel]()
-    var sortedCalendarModelArray = [CalendarModel]()
-    var counter = true
-    var todayDate:Int = 0
-    var todayDate1:Int = 0
-    var todayDateString:String = ""
+var eventArray = [String]()
+var calendarModelArray = [CalendarModel]()
+var sortedCalendarModelArray = [CalendarModel]()
+var counter = true
+var todayDate:Int = 0
+var todayDate1:Int = 0
+var todayMonth:Int = 0
+var todayMonthString:String = ""
+var todayDateString:String = ""
 
 
 class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
-
+    
     //MARK:IBOutlets
     @IBOutlet weak var calendarTableView: UITableView!
     @IBOutlet weak var calls: FSCalendar!
@@ -54,14 +61,17 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         
     }
     
-
+    
     //MARK:FSCalender methods
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
         if gregorian.isDateInToday(date){
             todayDate = Int(formatterDay.string(from: date))!
             todayDateString = formatterDay2.string(from: date)
+            todayMonth = Int(formatterMonth.string(from: date))!
+            todayMonthString = formatterMonth.string(from: date)
             print(todayDateString)
+            print(todayMonthString)
         }
         
         let datesss = formatter.string(from: date)
@@ -85,9 +95,13 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     //getting current date
                     let a1 = Int(newObject.dateForCell.split(separator: "-")[0])
                     let a2 = Int(todayDateString.split(separator: "-")[0])
+                    //getting current month
+                    let a3 = Int(newObject.dateForCell.split(separator: "-")[1])
+                    let a4 = todayMonth
+                    print(a3)
                     
                     //to check if event has passed away
-                    if newObject.dateForCell != todayDateString && a1! > a2! {
+                    if newObject.dateForCell != todayDateString && a1! > a2! && a4 == a3 {
                         calendarModelArray.append(newObject)
                         eventArray.append(jsonData[i]["date"].stringValue)
                     }
@@ -110,7 +124,7 @@ extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
         return calendarModelArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
         let cell = calendarTableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! CalendarTableViewCell
         cell.cardView.layer.cornerRadius = 14
         cell.cardView.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -131,9 +145,9 @@ extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
         if indexPath.row == 0{
             cell.nextEventLabel.text = "Next Event"
         }else{
-             cell.nextEventLabel.text = sortedCalendarModelArray[indexPath.row].dateForCell
+            cell.nextEventLabel.text = sortedCalendarModelArray[indexPath.row].dateForCell
         }
-       
+        
         cell.eventNameLabel.text = sortedCalendarModelArray[indexPath.row].name
         return cell
     }
