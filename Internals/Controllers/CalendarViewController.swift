@@ -45,6 +45,9 @@ var todayDate1:Int = 0
 var todayMonth:Int = 0
 var todayMonthString:String = ""
 var todayDateString:String = ""
+var feb = [29]
+var thirtyones = [01,03,05,07,08,10,12]
+var thirtys = [04,06,09,11]
 
 
 class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
@@ -101,7 +104,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
                     print(a3)
                     
                     //to check if event has passed away
-                    if newObject.dateForCell != todayDateString && a1! > a2! && a4 == a3 {
+                    if newObject.dateForCell != todayDateString && a1! > a2! && (a4 == a3! || a4 < a3!) {
                         calendarModelArray.append(newObject)
                         eventArray.append(jsonData[i]["date"].stringValue)
                     }
@@ -133,7 +136,23 @@ extension CalendarViewController :UITableViewDelegate, UITableViewDataSource{
         cell.workAllotmentButton.layer.cornerRadius = 12
         
         let newStr = Int(sortedCalendarModelArray[indexPath.row].dateForCell.split(separator: "-")[0])
+        var newStr2 = Int(sortedCalendarModelArray[indexPath.row].dateForCell.split(separator: "-")[1])
         todayDate1 = newStr! - todayDate
+        print(todayDate1)
+        print("newstr2",newStr2!)
+        if newStr2! > todayMonth{
+            if feb.contains(newStr2!){
+                newStr2 = newStr2! - todayMonth
+                todayDate1 = todayDate1 + (newStr2! * 29)
+            }else if thirtys.contains(newStr2!){
+                 newStr2 = newStr2! - todayMonth
+                todayDate1 = todayDate1 + (newStr2! * 30)
+            }else if thirtyones.contains(newStr2!){
+                 newStr2 = newStr2! - todayMonth
+                todayDate1 = todayDate1 + (newStr2! * 31)
+            }
+            
+        }
         cell.noOfDaysLabel.text = String(todayDate1)
         if todayDate1 == 1{
             cell.dayLabel.text = "Day"
